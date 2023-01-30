@@ -3,13 +3,14 @@ import { useState } from 'preact/hooks'
 import { createRef } from 'preact'
 
 import IconDeviceDesktop from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/device-desktop.tsx'
-import IconCut from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/cut.tsx'
+import CutIcon from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/cut.tsx'
+import RefreshIcon from 'https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/refresh.tsx'
 
 import { Btn, Section } from '@components/index.ts'
 
 
 const HomePage = () => {
-  const [ Image, SetImage ] = useState<string | ArrayBuffer | null>('')
+  const [ Image, SetImage ] = useState<string | ArrayBuffer | null>()
 
   const $File = createRef<HTMLInputElement>()
 
@@ -60,18 +61,24 @@ const HomePage = () => {
     </Section>
 
     <Section type={ 2 }>
-      <Btn disabled={ !!Image } outline>
-        <IconCut size={ 24 }/>
+      Image infos
+    </Section>
+
+    <Section type={ 3 }>
+      <Btn disabled={ !Image } night outline>
+        <CutIcon size={ 24 }/>
         Crop Image
       </Btn>
-      <Btn disabled outline>
-        <IconCut size={ 24 }/>
+      <Btn disabled night outline>
+        <CutIcon size={ 24 }/>
         Resize Image
       </Btn>
+      <Btn disabled night outline>
+        <RefreshIcon size={ 24 }/>
+        Convert Image
+      </Btn>
     </Section>
-    <Section type={ 3 }>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab ut odit inventore optio nesciunt expedita molestiae esse sed nisi dicta quo, aliquid aperiam nulla unde nostrum beatae deleniti? Sequi, possimus.
-    </Section>
+
     <Section type={ 4 }>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ipsam consequuntur et, provident animi accusamus dolorem asperiores labore vitae, quas itaque. Blanditiis maiores saepe facere dignissimos dolore impedit odio eligendi.
     </Section>
